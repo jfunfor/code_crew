@@ -2,8 +2,8 @@
 {
     position: relative;
     padding: 8px 5px;
-    display: flex;
-    vertical-align: middle;
+
+
 }
 .workspace__footer .footer__counter{
 
@@ -23,38 +23,41 @@
 a.button_All
 {
     background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
+
     border-radius: 4px;
     color: rgba(106, 104, 104, 0.98);
     padding: 4px 6px;
     text-decoration:none;
 }
+a.button_All:focus-within{ border: 1px solid #CCCCCC; }
 
 a.button_Active
 {
     background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    color: #5f5f5f;
+    padding: 4px 6px;
+    text-decoration:none;
+}
+a.button_Active:focus-within{ border: 1px solid #CCCCCC; }
+
+a.button_Completed
+{
+    background-color: #FFFFFF;
     border-radius: 4px;
     color: #5f5f5f;
     padding: 4px 6px;
     text-decoration:none;
 }
 
-a.button_Completed
-{
-    background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    border-radius: 4px;
-    color: #5f5f5f;
-    padding: 4px 6px;
-    text-decoration:none;
-}
+a.button_Completed:focus-within{ border: 1px solid #CCCCCC; }
+
 a.button_Clear_Completed
 {
     background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
     border-radius: 4px;
     color: #5f5f5f;
     padding: 4px 6px;
     text-decoration:none;
 }
+a.button_Clear_Completed:focus-within{ border: 1px solid #CCCCCC; }
