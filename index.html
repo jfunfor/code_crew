@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>todo</title>
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+<header><div class="header__title">todos</div></header>
+<body>
+<div class="workspace">
+    <div class="workspace__body">
+        <div class="body__search">
+            <span class="body__search_icon">
+                <img src="static/icons/select-all.png", alt="Error">
+            </span>
+            <span class="body__search_input">
+            <input type="text" class="input_text" placeholder="What needs to be done?" >
+            </span>
+        </div>
+        <div class="body__list">
+            <div class="body__list_item">
+                <input type="checkbox" id="chb1">
+                <label for="chb1"></label>
+                <input type="text" class="input_text" placeholder="HTML">
+            </div>
+            <div class="body__list_item">
+                <label>
+                    <input type="checkbox" name="CSS" value="Yes" >
+                    <span class="checkmark"></span>
+                </label>
+                <input type="text" class="input_text" placeholder="CSS">
+            </div>
+            <div class="body__list_item">
+                <label>
+                    <input type="checkbox" name="JS" value="Yes" >
+                    <span class="checkmark"></span>
+                </label>
+                <input type="text" class="input_text" placeholder="JS">
+            </div>
+            <div class="body__list_item">
+                <label>
+                    <input type="checkbox" name="JS tools" value="Yes" >
+                    <span class="checkmark"></span>
+                </label>
+                <input type="text" class="input_text" placeholder="JS tools">
+            </div>
+        </div>
+    </div>
+    <div class="workspace__footer">
+        <span class="footer__counter">
+            <span class="footer__counter_value">3</span>
+            <span class="footer__counter_text">items left</span>
+        </span>
+        <span class="footer__filters">
+            <span class="footer__filters_filter">All</span>
+            <span class="footer__filters_filter">Active</span>
+            <span class="footer__filters_filter">Completed</span>
+        </span>
+        <span class="footer__clear">
+            <span>Clear completed</span>
+        </span>
+    </div>
+</div>
+</body>
+</html>
