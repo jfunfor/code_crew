@@ -6,6 +6,7 @@
 @import "project/body__search.css";
 @import "project/workspace__footer.css";
 @import "project/body__list.css";
+@import "base/btn.css";
 body
 {
     background: #F5F5F5;
