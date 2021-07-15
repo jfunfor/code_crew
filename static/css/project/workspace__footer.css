@@ -60,4 +60,4 @@ a.button_Clear_Completed
     padding: 4px 6px;
     text-decoration:none;
 }
-a.button_Completed:active{ border: 1px solid #CCCCCC; }
+a.button_Clear_Completed:active{ border: 1px solid #CCCCCC; }
