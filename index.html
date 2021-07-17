@@ -11,40 +11,38 @@
     <div class="workspace__body">
         <div class="body__search">
             <span class="body__search_icon">
-                <img src="static/icons/select-all.png", alt="Error">
+                <button class="button_select"><img class="icon_select" src="static/icons/select-all.png", alt="Error"></button>
             </span>
             <span class="body__search_input">
-            <input type="text" class="input_text" placeholder="What needs to be done?" >
+            <input type="text" class="input_search" placeholder="What needs to be done?">
             </span>
         </div>
         <div class="body__list">
-            <div class="body__list_item">
+            <li class="body__list_item">
                 <input type="checkbox" id="chb1">
                 <label for="chb1"></label>
                 <input type="text" class="input_text" placeholder="HTML">
-            </div>
-            <div class="body__list_item">
-                <label>
-                    <input type="checkbox" name="CSS" value="Yes" >
-                    <span class="checkmark"></span>
-                </label>
+                <button class="button_close"><img class="icon_close" src="static/icons/close.png"></button>
+            </li>
+            <li class="body__list_item">
+
+                <input type="checkbox" id="chb2" >
+                <label for="chb2"></label>
                 <input type="text" class="input_text" placeholder="CSS">
-                <button type="button" ></button>
-            </div>
-            <div class="body__list_item">
-                <label>
-                    <input type="checkbox" name="JS" value="Yes" >
-                    <span class="checkmark"></span>
-                </label>
+                <button class="button_close"><img class="icon_close" src="static/icons/close.png"></button>
+            </li>
+            <li class="body__list_item">
+                <input type="checkbox" id="chb3" >
+                <label for="chb3"></label>
                 <input type="text" class="input_text" placeholder="JS">
-            </div>
-            <div class="body__list_item">
-                <label>
-                    <input type="checkbox" name="JS tools" value="Yes" >
-                    <span class="checkmark"></span>
-                </label>
+                <button class="button_close"><img class="icon_close" src="static/icons/close.png"></button>
+            </li>
+            <li class="body__list_item">
+                <input type="checkbox" id="chb4" >
+                <label for="chb4"></label>
                 <input type="text" class="input_text" placeholder="JS tools">
-            </div>
+                <button class="button_close"><img class="icon_close" src="static/icons/close.png"></button>
+            </li>
         </div>
     </div>
     <div class="workspace__footer">
@@ -53,12 +51,12 @@
             <span class="footer__counter_text">items left</span>
         </span>
         <span class="footer__filters">
-            <span class="footer__filters_filter">All</span>
-            <span class="footer__filters_filter">Active</span>
-            <span class="footer__filters_filter">Completed</span>
+           <button class="button_All"><span class="footer__filters_filter">All</span></button>
+            <button class="button_Active"><span class="footer__filters_filter">Active</span></button>
+            <button class="button_Completed"><span class="footer__filters_filter">Completed</span></button>
         </span>
         <span class="footer__clear">
-            <span>Clear completed</span>
+            <button class="button_Clear"><span>Clear completed</span></button>
         </span>
     </div>
 </div>

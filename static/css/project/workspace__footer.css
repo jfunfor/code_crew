@@ -1,4 +1,7 @@
 .workspace__footer
 {
-    margin-top: 20px;
+
+    border-top:2px solid #E9E9E9;
+    height: 30px;
+    position: relative;
 }

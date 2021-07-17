@@ -1,0 +1,28 @@
+input
+{
+    margin: 7px 0px;
+    padding: 0px;
+    border:none;
+    size: auto;
+}
+input:focus
+{
+    outline: none;
+}
+input[type="text"]
+{
+    font-size: 20px;
+}
+input[type="checkbox"]
+{
+    display:none;
+}
+input[type="checkbox"]:checked + label::before {
+    background: url(../../icons/completed.png) center no-repeat;
+}
+
+.input_search::placeholder
+{
+    font-style: italic;
+    color: #D2D2D2;
+}

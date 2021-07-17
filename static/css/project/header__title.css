@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap');
 .header__title
 {
-    font-size: 3rem;
+    font-size: 5rem;
     color: #EFE7E7;
     text-align: center;
+    font-family: "Work Sans",Serif;
 }

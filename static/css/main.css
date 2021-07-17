@@ -1,39 +1,19 @@
 @import "project/header__title.css";
 @import "project/workspace.css";
-@import "project/workspace__body.css";
 @import "project/body__list_item.css";
-@import "project/input_text.css";
 @import "project/body__search.css";
 @import "project/workspace__footer.css";
-@import "project/body__list.css";
-@import "base/btn.css";
+@import "base/buttons.css";
+@import "base/icons.css";
+@import "base/fonts.css";
+@import "base/inputs.css";
 body
 {
     background: #F5F5F5;
     margin: 0 auto;
-    max-width: 40%;
-    max-height: 40%;
+    width: 30%;
+    height: 40%;
     border-radius: 4px;
-
-}
-footer
-{
-    background: white;
-    border-top: 2px solid #ECECEC;
-    color:black;
-    height: 20px;
-    box-shadow: 0px 2px 4px 0px rgba(50,50,50,0.45);
-
-}
-input
-{
-    margin: 7px 0px;
-    padding: 0px;
-
-}
-input[type="checkbox"]
-{
-    display:none;
 }
 
 label::before {
@@ -46,7 +26,5 @@ label::before {
     vertical-align: middle;
     margin-left: -10px;
     margin-right: 10px;
-}
-input[type="checkbox"]:checked + label::before {
-    background: url(completed.png) center no-repeat;
+    margin-bottom: 3px;
 }

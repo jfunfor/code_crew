@@ -1,0 +1,73 @@
+button
+{
+    height: auto;
+    width: auto;
+}
+.button_close
+{
+    background: white;
+    border: none;
+    object-fit: contain;
+    float: right;
+    padding: 14px 10px 10px 0px;
+
+}
+.button_select
+{
+    background: white;
+    border: none;
+    object-fit: contain;
+    float: left;
+    padding: 14px 10px 0px 3px;
+}
+.button_All
+{
+    background: white;
+    border: 2px solid white;
+    margin-left: 20%;
+    margin-top: 3px;
+}
+.button_All:active
+{
+    border: 2px solid #F5EFEF;
+    border-radius: 4px;
+}
+.button_Active
+{
+    background: white;
+    border: 2px solid white;
+    margin-top: 3px;
+}
+.button_Active:active
+{
+    border: 2px solid #F5EFEF;
+    border-radius: 4px;
+
+}
+
+.button_Completed
+{
+    background: white;
+    border: 2px solid white;
+    margin-top: 3px;
+
+}
+.button_Completed:active
+{
+    border: 2px solid #F5EFEF;
+    border-radius: 4px;
+}
+.button_Clear
+{
+    background: white;
+    border: 2px solid white;
+    float: right;
+    margin-top: 3px;
+
+}
+.button_Clear:active
+{
+    border: 2px solid #F5EFEF;
+    border-radius: 4px;
+
+}
