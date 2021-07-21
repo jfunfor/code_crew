@@ -1,0 +1,13 @@
+@import "project/todos__workspace.css";
+@import "project/todos__header.css";
+@import "project/search-todos.css";
+@import "project/list-todos__item.css";
+@import "project/lsit-todos__chb.css";
+@import "project/todos__footer.css";
+body {
+    background: #F5F5F5;
+}
+.todos__body {
+    margin: 10px 200px;
+    padding: 20px;
+}
