@@ -1,0 +1,25 @@
+.list-todos__item {
+    margin: 10px -20px 10px;
+    border-bottom: 1px solid #E6E6E6;
+}
+.list-todos__input {
+    width: 32.9em;
+    height: 40px;
+    font-size: 14pt;
+    font-weight: lighter;
+    font-family: "Helvetica Neue", serif;
+}
+.list-todos__btn-del {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+    margin: auto;
+    border: none;
+    background: url("../../icons/close.png") center no-repeat;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+.list-todos__btn-del:active {
+    transform: scale(1.3);
+}

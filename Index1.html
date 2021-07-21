@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>todos</title>
-  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="static/styles/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -14,12 +14,10 @@
     </div>
     <div class="todos__workspace">
       <div class="search-todos">
-
         <button class="search-todos__btn"></button>
         <input type="text" class="inputs-style search-todos__input" placeholder="What needs to be done?">
       </div>
-      <div class="todos__split-line"></div>
-      <div class="list-todos">
+      <div class="todos__list">
         <div class="list-todos__item">
           <input class="list-todos__chb" type="checkbox" id="chb1">
           <label class="list-todos__invisible-lbl" for="chb1"></label>
@@ -45,16 +43,14 @@
           <button class="list-todos__btn-del"></button>
         </div>
       </div>
-      <div class="footer">
+      <div class="todos__footer">
         <output class ="footer__output"name="num_of_left">0</output> <span>items left</span>
         <button class="footer__but">All</button>
         <button class="footer__but">Active</button>
         <button class="footer__but">Completed</button>
-        <button class="footer__but_position">Clear completed</button>
+        <button class="footer__but footer__but-position">Clear completed</button>
       </div>
     </div>
   </div>
-
 </div>
-
 </body>
