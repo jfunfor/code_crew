@@ -2,62 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>todo</title>
-    <link rel="stylesheet" href="static/css/main.css">
+    <title>todos</title>
+    <link rel="stylesheet" href="static/styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap" rel="stylesheet">
 </head>
-<header><div class="header__title">todos</div></header>
 <body>
-<div class="workspace">
-    <div class="workspace__body">
-        <div class="body__search">
-            <span class="body__search_icon">
-                <img src="static/icons/select-all.png", alt="Error">
-            </span>
-            <span class="body__search_input">
-            <input type="text" class="input_text" placeholder="What needs to be done?" >
-            </span>
+<div class="todos">
+    <div class="todos__body">
+        <div class="todos__header">
+            <div class="todos__title">todos</div>
         </div>
-        <div class="body__list">
-            <div class="body__list_item">
-                <input type="checkbox" id="chb1">
-                <label for="chb1"></label>
-                <input type="text" class="input_text" placeholder="HTML">
+        <div class="todos__workspace">
+            <div class="search-todos">
+                <button class="search-todos__btn"></button>
+                <input type="text" class="inputs-style search-todos__input" placeholder="What needs to be done?">
             </div>
-            <div class="body__list_item">
-                <input type="checkbox" id="chb2">
-                <label for="chb2"></label>
-                <input type="text" class="input_text" placeholder="CSS">
-                <button type="button" ></button>
+            <div class="todos__list">
+                <div class="list-todos__item">
+                    <input class="list-todos__chb" type="checkbox" id="chb1" onchange="counter()">
+                    <label class="list-todos__invisible-lbl" for="chb1"></label>
+                    <input class="inputs-style list-todos__input" value="HTML">
+                    <button class="list-todos__btn-del"></button>
+                </div>
+                <div class="list-todos__item">
+                    <input class="list-todos__chb" type="checkbox" id="chb2" onchange="counter()">
+                    <label class="list-todos__invisible-lbl" for="chb2"></label>
+                    <input class="inputs-style list-todos__input" value="CSS">
+                    <button class="list-todos__btn-del"></button>
+                </div>
+                <div class="list-todos__item">
+                    <input class="list-todos__chb" type="checkbox" id="chb3" onchange="counter()">
+                    <label class="list-todos__invisible-lbl" for="chb3"></label>
+                    <input class="inputs-style list-todos__input" value="JS">
+                    <button class="list-todos__btn-del"></button>
+                </div>
+                <div class="list-todos__item">
+                    <input class="list-todos__chb" type="checkbox" id="chb4" onchange="counter()">
+                    <label class="list-todos__invisible-lbl" for="chb4"></label>
+                    <input class="inputs-style list-todos__input" value="JS Tools">
+                    <button class="list-todos__btn-del"></button>
+                </div>
             </div>
-            <div class="body__list_item">
-                <input type="checkbox" id="chb3">
-                <label for="chb3"></label>
-                <input type="text" class="input_text" placeholder="JS">
-            </div>
-            <div class="body__list_item">
-                <input type="checkbox" id="chb4">
-                <label for="chb4"></label>
-                <input type="text" class="input_text" placeholder="JS tools">
+            <div class="todos__footer">
+                <output class ="footer__output"name="num_of_left">4</output> <span>items left</span>
+                <button class="footer__but">All</button>
+                <button class="footer__but">Active</button>
+                <button class="footer__but">Completed</button>
+                <button class="footer__but footer__but-position" onclick="btn_ClearCompleted()">Clear completed</button>
             </div>
         </div>
-    </div>
-    <div class="workspace__footer">
-        <form>
-        <span class="footer__counter">
-            <span class="footer__counter_value">3</span>
-            <span class="footer__counter_text">items left</span>
-        </span>
-        <span class="footer__filters">
-            <a href="#" class="button_All">All</a>
-            <a href="#" class="button_Active">Active</a>
-            <a href="#" class="button_Completed">Completed</a>
-
-        </span>
-        <span class="footer__clear">
-            <a href="#" class="button_Clear_Completed">Clear completed</a>
-        </span>
-        </form>
     </div>
 </div>
+<script src="static/js/Footer.js"></script>
 </body>
-</html>

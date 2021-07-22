@@ -1,0 +1,20 @@
+@import "project/todos__workspace.css";
+@import "project/todos__header.css";
+@import "project/search-todos.css";
+@import "project/list-todos__item.css";
+@import "project/lsit-todos__chb.css";
+@import "project/todos__footer.css";
+body {
+    background: #F5F5F5;
+    max-width: 40%;
+    max-height: 40%;
+    margin: 0 auto;
+}
+footer
+{
+    background: white;
+    border-top: 2px solid #ECECEC;
+    height: 20px;
+    box-shadow: 0px 2px 4px 0px rgba(50,50,50,0.45);
+
+}
