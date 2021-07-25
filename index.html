@@ -19,38 +19,39 @@
             </div>
             <div class="todos__list">
                 <div class="list-todos__item">
-                    <input class="list-todos__chb" type="checkbox" id="chb1">
+                    <input class="list-todos__chb" type="checkbox" id="chb1" onchange="counter()">
                     <label class="list-todos__invisible-lbl" for="chb1"></label>
                     <input class="inputs-style list-todos__input" value="HTML">
                     <button class="list-todos__btn-del"></button>
                 </div>
                 <div class="list-todos__item">
-                    <input class="list-todos__chb" type="checkbox" id="chb2">
+                    <input class="list-todos__chb" type="checkbox" id="chb2" onchange="counter()">
                     <label class="list-todos__invisible-lbl" for="chb2"></label>
                     <input class="inputs-style list-todos__input" value="CSS">
                     <button class="list-todos__btn-del"></button>
                 </div>
                 <div class="list-todos__item">
-                    <input class="list-todos__chb" type="checkbox" id="chb3">
+                    <input class="list-todos__chb" type="checkbox" id="chb3" onchange="counter()">
                     <label class="list-todos__invisible-lbl" for="chb3"></label>
                     <input class="inputs-style list-todos__input" value="JS">
                     <button class="list-todos__btn-del"></button>
                 </div>
                 <div class="list-todos__item">
-                    <input class="list-todos__chb" type="checkbox" id="chb4">
+                    <input class="list-todos__chb" type="checkbox" id="chb4" onchange="counter()">
                     <label class="list-todos__invisible-lbl" for="chb4"></label>
                     <input class="inputs-style list-todos__input" value="JS Tools">
                     <button class="list-todos__btn-del"></button>
                 </div>
             </div>
             <div class="todos__footer">
-                <output class ="footer__output"name="num_of_left">0</output> <span>items left</span>
+                <output class ="footer__output"name="num_of_left">4</output> <span>items left</span>
                 <button class="footer__but">All</button>
                 <button class="footer__but">Active</button>
                 <button class="footer__but">Completed</button>
-                <button class="footer__but footer__but-position">Clear completed</button>
+                <button class="footer__but footer__but-position" onclick="btn_ClearCompleted()">Clear completed</button>
             </div>
         </div>
     </div>
 </div>
+<script src="static/js/Footer.js"></script>
 </body>
