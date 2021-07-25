@@ -1,34 +1,39 @@
-.search-todos {
+.search-todos
+{
     padding: 10px 0px 10px 0px;
     border-bottom: 1px solid #E6E6E6;
+    height: 30px;
+    width: 100%;
+    position:relative;
 }
-.inputs-style {
+.inputs-style
+{
     padding: 2px;
     border: none;
 }
-.search-todos__input {
+.search-todos__input
+{
     margin-left: 10px;
-    width: 400px;
+    width: 200px;
     font-style: italic;
     font-family: "Helvetica Neue", serif;
     font-size: 20px;
     font-weight: lighter;
 }
-.inputs-style:focus {
+.inputs-style:focus
+{
     outline: none;
     border: none;
 }
-.search-todos__btn {
+.search-todos__btn
+{
     background: url("../../icons/select-all.png") center no-repeat;
     border: none;
-    display: inline-block;
-    box-sizing: border-box;
-    width: 24px;
-    height: 12px;
-    margin:auto;
-    cursor: pointer;
+    object-fit: contain;
+    padding: 8px 10px 8px 10px;
+    margin-left: 10px;
 }
 .search-todos__btn:active
 {
-    transform: translate(0px 10px);
+    transform: translate(0px, 1px);
 }

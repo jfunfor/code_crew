@@ -22,7 +22,6 @@
     position:absolute;
     bottom:33%;
     right:30px;
-    display:none;
 }
 .list-todos__btn-del:hover
 {
