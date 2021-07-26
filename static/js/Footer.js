@@ -15,3 +15,37 @@ function btn_ClearCompleted()
     if(chb4.checked) chb4.checked=false;
     counter();
 }
+
+function btn_Active()
+{
+
+    if(chb1.checked) document.getElementById('item1').style.display='none';
+    else document.getElementById('item1').style.display='block';
+    if(chb2.checked) document.getElementById('item2').style.display='none';
+    else document.getElementById('item2').style.display='block';
+    if(chb3.checked) document.getElementById('item3').style.display='none';
+    else document.getElementById('item3').style.display='block';
+    if(chb4.checked) document.getElementById('item4').style.display='none';
+    else document.getElementById('item4').style.display='block';
+
+}
+
+function btn_All()
+{
+    document.getElementById('item1').style.display='block';
+    document.getElementById('item2').style.display='block';
+    document.getElementById('item3').style.display='block';
+    document.getElementById('item4').style.display='block';
+}
+
+function btn_Completed()
+{
+    if(!chb1.checked) document.getElementById('item1').style.display='none';
+    else document.getElementById('item1').style.display='block';
+    if(!chb2.checked) document.getElementById('item2').style.display='none';
+    else document.getElementById('item2').style.display='block';
+    if(!chb3.checked) document.getElementById('item3').style.display='none';
+    else document.getElementById('item3').style.display='block';
+    if(!chb4.checked) document.getElementById('item4').style.display='none';
+    else document.getElementById('item4').style.display='block';
+}
