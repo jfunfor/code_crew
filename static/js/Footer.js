@@ -1,51 +1,52 @@
-function counter()
+function countItemsLeft()
 {
-    var counter_items_left=0;
-    if(!chb1.checked) counter_items_left++;
-    if(!chb2.checked) counter_items_left++;
-    if(!chb3.checked) counter_items_left++;
-    if(!chb4.checked) counter_items_left++;
-    document.getElementsByName('num_of_left')[0].value =counter_items_left;
+    let checkboxArr = Array.from(document.getElementsByClassName('list-todos__chb'));
+    let n =checkboxArr.length;
+    let counterItemsLeft=0;
+    for (let i=0;i<n;i++)
+    if(!checkboxArr[i].checked)  counterItemsLeft++;
+    document.getElementsByName('num_of_left')[0].value =counterItemsLeft;
 }
-function btn_ClearCompleted()
+function filterClearCompleted()
 {
-    if(chb1.checked) chb1.checked=false;
-    if(chb2.checked) chb2.checked=false;
-    if(chb3.checked) chb3.checked=false;
-    if(chb4.checked) chb4.checked=false;
-    counter();
-}
-
-function btn_Active()
-{
-
-    if(chb1.checked) document.getElementById('item1').style.display='none';
-    else document.getElementById('item1').style.display='block';
-    if(chb2.checked) document.getElementById('item2').style.display='none';
-    else document.getElementById('item2').style.display='block';
-    if(chb3.checked) document.getElementById('item3').style.display='none';
-    else document.getElementById('item3').style.display='block';
-    if(chb4.checked) document.getElementById('item4').style.display='none';
-    else document.getElementById('item4').style.display='block';
-
+    let checkboxArr = Array.from(document.getElementsByClassName('list-todos__chb'));
+    let inputItemArr = Array.from(document.getElementsByClassName('inputs-style list-todos__input'));
+    let n =checkboxArr.length;
+    for (let i=0;i<n;i++)
+        if(checkboxArr[i].checked)
+        {
+            checkboxArr[i].checked=false;
+            inputItemArr[i].style.textDecoration="none";
+        }
+    document.getElementsByName('num_of_left')[0].value =n;
 }
 
-function btn_All()
+function filterActive()
 {
-    document.getElementById('item1').style.display='block';
-    document.getElementById('item2').style.display='block';
-    document.getElementById('item3').style.display='block';
-    document.getElementById('item4').style.display='block';
+    let checkboxArr = Array.from(document.getElementsByClassName('list-todos__chb'));
+    let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
+    let n =checkboxArr.length;
+    for (let i=0;i<n;i++)
+        if(checkboxArr[i].checked)
+            itemArr[i].style.display='none';
+        else itemArr[i].style.display='block';
 }
 
-function btn_Completed()
+function filterAll()
 {
-    if(!chb1.checked) document.getElementById('item1').style.display='none';
-    else document.getElementById('item1').style.display='block';
-    if(!chb2.checked) document.getElementById('item2').style.display='none';
-    else document.getElementById('item2').style.display='block';
-    if(!chb3.checked) document.getElementById('item3').style.display='none';
-    else document.getElementById('item3').style.display='block';
-    if(!chb4.checked) document.getElementById('item4').style.display='none';
-    else document.getElementById('item4').style.display='block';
+    let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
+    let n =itemArr.length;
+    for (let i=0;i<n;i++)
+        itemArr[i].style.display='block';
+}
+
+function filterCompleted()
+{
+    let checkboxArr = Array.from(document.getElementsByClassName('list-todos__chb'));
+    let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
+    let n =checkboxArr.length;
+    for (let i=0;i<n;i++)
+        if(!checkboxArr[i].checked)
+            itemArr[i].style.display='none';
+        else itemArr[i].style.display='block';
 }
