@@ -1,3 +1,8 @@
+
+checkboxArr.forEach(function(element) {
+    element.onchange=crossOutItem;
+})
+
 function crossOutItem()
 {
     let checkboxArr = Array.from(document.getElementsByClassName('list-todos__chb'));

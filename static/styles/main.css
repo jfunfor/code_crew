@@ -10,11 +10,3 @@ body {
     max-height: 40%;
     margin: 0 auto;
 }
-footer
-{
-    background: white;
-    border-top: 2px solid #ECECEC;
-    height: 20px;
-    box-shadow: 0px 2px 4px 0px rgba(50,50,50,0.45);
-
-}
