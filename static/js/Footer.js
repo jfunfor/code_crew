@@ -7,7 +7,7 @@ function countItemsLeft()
     if(!checkboxArr[i].checked)  counterItemsLeft++;
     document.getElementsByName('num_of_left')[0].value =counterItemsLeft;
 }
-function filterClearCompleted()
+function clearCompleted()
 {
     let checkboxArr = Array.from(document.getElementsByClassName('list-todos__chb'));
     let inputItemArr = Array.from(document.getElementsByClassName('inputs-style list-todos__input'));
@@ -19,6 +19,7 @@ function filterClearCompleted()
             inputItemArr[i].style.textDecoration="none";
         }
     document.getElementsByName('num_of_left')[0].value =n;
+
 }
 
 function filterActive()
