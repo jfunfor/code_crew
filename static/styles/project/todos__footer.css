@@ -10,15 +10,15 @@
     left: 15px;
     bottom:27%;
 }
-.footer__but
+.footer__btn
 {
     background-color: white;
     border: 1px solid white;
 }
-.footer__but-position
+.footer__btn-position
 {
     position: absolute;
     right: 10px;
 }
-.footer__but:active{ border: 1px solid #CCCCCC; }
-.footer__but-filters:focus{ border: 1px solid #CCCCCC; }
+.footer__btn:active{ border: 1px solid #CCCCCC; }
+.footer__btn-filters:focus{ border: 1px solid #CCCCCC; }
