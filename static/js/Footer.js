@@ -5,6 +5,7 @@ let footerBtnArr =
 
 checkboxArr.forEach(function(element) {
     element.onchange=countItemsLeft;
+    console.log(element);
 })
 
 footerBtnArr[0].onclick=handleBtnAll;
@@ -19,6 +20,7 @@ function countItemsLeft() {
     for (let i=0;i<n;i++)
     if(!checkboxArr[i].checked)  counterItemsLeft++;
     document.getElementsByName('num_of_left')[0].value =counterItemsLeft;
+    crossOutItem();
 }
 
 function handleBtnClearCompleted() {
