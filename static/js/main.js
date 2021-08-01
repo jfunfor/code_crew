@@ -93,6 +93,7 @@ function addNewListItem(inputSearch) {
     newDiv.appendChild(label);
     newDiv.appendChild(inputLine);
     newDiv.appendChild(button);
+    inputSearch.value= "";
 }
 
 function holdFilterBtnPressed(clickedBtn) {
