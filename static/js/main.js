@@ -1,16 +1,25 @@
 let checkboxArr =
     Array.from(document.getElementsByClassName('list-todos__chb'));
 let footerBtnArr =
-    Array.from(document.getElementsByClassName('footer__btn'))
+    Array.from(document.getElementsByClassName('footer__btn'));
+let searchInputArr =
+    Array.from(document.getElementsByClassName('search-todos__input'));
 let indexClickedButton;
 
-footerBtnArr[0].onclick=handleBtnAllClick;
-footerBtnArr[1].onclick=handleBtnActiveClick;
-footerBtnArr[2].onclick=handleBtnCompletedClick;
-footerBtnArr[3].onclick=handleBtnClearCompletedClick;
+footerBtnArr[0].onclick = handleBtnAllClick;
+footerBtnArr[1].onclick = handleBtnActiveClick;
+footerBtnArr[2].onclick = handleBtnCompletedClick;
+footerBtnArr[3].onclick = handleBtnClearCompletedClick;
+searchInputArr[0].onkeyup =  handleSearchInputViaEnterClick;
 checkboxArr.forEach(function(element) {
     element.onchange=handleOutputItemsCounterOnchange;
 })
+
+function handleSearchInputViaEnterClick(event){
+    if(event.keyCode==13) {
+        addNewListItem(this);
+    }
+}
 
 function handleOutputItemsCounterOnchange() {
     countItemsLeft();
@@ -56,6 +65,35 @@ function handleBtnCompletedClick() {
             itemArr[i].style.display='none';
         else itemArr[i].style.display='block';
     holdFilterBtnPressed(this);
+}
+
+function addNewListItem(inputSearch) {
+    var divList = document.getElementById("inputListItem");
+    console.log(divList);
+    var newDiv = document.createElement("div");
+    var inputChb = document.createElement("input");
+    var inputItemArr = document.getElementsByClassName("list-todos__chb");
+    var inputLine = document.createElement("input");
+    var label = document.createElement("label");
+    var button = document.createElement("button");
+    newDiv.className = "list-todos__item";
+    inputChb.type = "text";
+    inputChb.className = "list-todos__chb";
+    inputChb.type = "checkbox";
+    inputChb.id = "chb"+(parseInt(inputItemArr[inputItemArr.length-1].id.match(/\d+/))+1);
+    label.className = "list-todos__invisible-lbl";
+    label.htmlFor = inputChb.id;
+    inputLine.type = "text";
+    inputLine.className = "inputs-style list-todos__input";
+    inputLine.placeholder = "Add the new task";
+    inputLine.value = inputSearch.value;
+    button.className = "list-todos__btn-del";
+    divList.appendChild(newDiv);
+    newDiv.appendChild(inputChb);
+    newDiv.appendChild(label);
+    newDiv.appendChild(inputLine);
+    newDiv.appendChild(button);
+    inputSearch.value= "";
 }
 
 function holdFilterBtnPressed(clickedBtn) {
