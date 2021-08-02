@@ -5,6 +5,9 @@ let footerBtnArr =
 let searchInputArr =
     Array.from(document.getElementsByClassName('search-todos__input'));
 let indexClickedButton;
+let deleteBtnArr =
+    Array.from(document.getElementsByClassName('list-todos__btn-del'));
+let numberItem= checkboxArr.length;
 
 footerBtnArr[0].onclick = handleBtnAllClick;
 footerBtnArr[1].onclick = handleBtnActiveClick;
@@ -13,6 +16,10 @@ footerBtnArr[3].onclick = handleBtnClearCompletedClick;
 searchInputArr[0].onkeyup =  handleSearchInputViaEnterClick;
 checkboxArr.forEach(function(element) {
     element.onchange=handleOutputItemsCounterOnchange;
+})
+
+deleteBtnArr.forEach(function(element,index) {
+    element.onclick=function(){deleteItemBtn(index); };
 })
 
 function handleSearchInputViaEnterClick(event){
@@ -24,33 +31,29 @@ function handleSearchInputViaEnterClick(event){
 function handleOutputItemsCounterOnchange() {
     countItemsLeft();
     crossOutItem();
-    updateChangesActiveAndComplete();
+    updateChangesActiveComplete();
 }
 function handleBtnClearCompletedClick() {
-
     let inputItemArr = Array.from(document.getElementsByClassName('inputs-style list-todos__input'));
-    let n =checkboxArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(checkboxArr[i].checked) {
             checkboxArr[i].checked = false;
             inputItemArr[i].style.textDecoration = "none";
         }
-    document.getElementsByName('num_of_left')[0].value =n;
-    updateChangesActiveAndComplete();
+    document.getElementsByName('num_of_left')[0].value =numberItem;
+    updateChangesActiveComplete();
 }
 
 function handleBtnAllClick() {
     let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
-    let n =itemArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         itemArr[i].style.display='block';
     holdFilterBtnPressed(this);
 }
 
 function handleBtnActiveClick() {
     let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
-    let n =checkboxArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(checkboxArr[i].checked)
             itemArr[i].style.display='none';
         else itemArr[i].style.display='block';
@@ -59,8 +62,7 @@ function handleBtnActiveClick() {
 
 function handleBtnCompletedClick() {
     let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
-    let n =checkboxArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(!checkboxArr[i].checked)
             itemArr[i].style.display='none';
         else itemArr[i].style.display='block';
@@ -94,6 +96,7 @@ function addNewListItem(inputSearch) {
     newDiv.appendChild(inputLine);
     newDiv.appendChild(button);
     inputSearch.value= "";
+    updateItemElements();
 }
 
 function holdFilterBtnPressed(clickedBtn) {
@@ -110,9 +113,8 @@ function holdFilterBtnPressed(clickedBtn) {
              }
 }
 function countItemsLeft() {
-    let n = checkboxArr.length;
     let counterItemsLeft=0;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(!checkboxArr[i].checked)  counterItemsLeft++;
     document.getElementsByName('num_of_left')[0].value =counterItemsLeft;
 
@@ -120,13 +122,35 @@ function countItemsLeft() {
 function crossOutItem() {
     let checkboxArr = Array.from(document.getElementsByClassName('list-todos__chb'));
     let inputItemArr = Array.from(document.getElementsByClassName('inputs-style list-todos__input'));
-    let n =inputItemArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(!checkboxArr[i].checked)  inputItemArr[i].style.textDecoration="none";
         else inputItemArr[i].style.textDecoration="line-through";
 }
-function updateChangesActiveAndComplete() {
+function updateChangesActiveComplete() {
+    updateItemElements();
     if(indexClickedButton==1) handleBtnActiveClick();
     if(indexClickedButton==2) handleBtnCompletedClick();
     holdFilterBtnPressed(footerBtnArr[indexClickedButton]);
+}
+function deleteItemBtn(indexDelBtn) {
+    let itemArr =
+        Array.from(document.getElementsByClassName('list-todos__item'));
+    itemArr[indexDelBtn].parentNode.removeChild(itemArr[indexDelBtn]);
+    updateItemElements();
+    handleOutputItemsCounterOnchange();
+}
+function updateItemElements() {
+    checkboxArr =
+        Array.from(document.getElementsByClassName('list-todos__chb'));
+    searchInputArr =
+        Array.from(document.getElementsByClassName('search-todos__input'));
+    deleteBtnArr =
+        Array.from(document.getElementsByClassName('list-todos__btn-del'));
+    numberItem= checkboxArr.length;
+    checkboxArr.forEach(function(element) {
+        element.onchange=handleOutputItemsCounterOnchange;
+    })
+    deleteBtnArr.forEach(function(element,index) {
+        element.onclick=function(){deleteItemBtn(index); };
+    })
 }
