@@ -19,7 +19,6 @@ btnActive.onclick = handleBtnActiveClick;
 btnCompleted.onclick = handleBtnCompletedClick;
 btnClearCompleted.onclick = handleBtnClearCompletedClick;
 inputElementNewListItem.onkeydown = handleSearchInputViaEnterClick;
-inputElementNewListItem.onkeyup = handleOutputItemsCounter;
 checkboxArr.forEach(function(element) {
     element.onchange=handleOutputItemsCounter;
 })
@@ -31,9 +30,8 @@ function handleSearchInputViaEnterClick(event){
     if(event.keyCode==13) {
         addNewListItem(this);
         updateItemElements();
-        })
+        }
     }
-}
 
 function handleOutputItemsCounter() {
     countItemsLeft();
@@ -79,7 +77,13 @@ function handleBtnCompletedClick() {
 function addNewListItem(inputSearch) {
     let divList = document.getElementById("inputListItem");
     let inputItemArr = document.getElementsByClassName("list-todos__chb");
-    let chbId = "chb" + (parseInt(inputItemArr[inputItemArr.length-1].id.match(/\d+/))+1);
+    let chbId;
+    console.log(inputItemArr.length);
+    if (inputItemArr.length == 0) {
+        chbId = "chb1";
+    }
+    else { chbId = "chb" + (parseInt(inputItemArr[inputItemArr.length-1].id.match(/\d+/))+1); }
+    console.log(chbId);
     let newDiv = createNewDiv("list-todos__item");
     let newChb = createNewChb("list-todos__chb","checkbox",chbId);
     let newLabel = createNewLabel("list-todos__invisible-lbl",chbId);
@@ -91,7 +95,6 @@ function addNewListItem(inputSearch) {
     newDiv.appendChild(newInputLine);
     newDiv.appendChild(newBtn);
     inputSearch.value= "";
-    updateItemElements();
 }
 function createNewDiv(className) {
     let newDiv = document.createElement("div");
@@ -156,7 +159,6 @@ function crossOutItem() {
         else inputItemArr[i].style.textDecoration="line-through";
 }
 function updateChangesActiveComplete() {
-    updateItemElements();
     if(indexClickedButton==1) handleBtnActiveClick();
     if(indexClickedButton==2) handleBtnCompletedClick();
     holdFilterBtnPressed(footerBtnArr[indexClickedButton]);
@@ -181,4 +183,5 @@ function updateItemElements() {
     deleteBtnArr.forEach(function(element,index) {
         element.onclick=function(){deleteItemBtn(index); };
     })
+    handleOutputItemsCounter();
 }
