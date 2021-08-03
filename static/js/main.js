@@ -4,7 +4,7 @@ let footerBtnArr =
     Array.from(document.getElementsByClassName('footer__btn'));
 let searchInputArr =
     Array.from(document.getElementsByClassName('search-todos__input'));
-let indexClickedButton;
+let ClickedButton;
 let btnAll = footerBtnArr[0];
 let btnActive = footerBtnArr[1];
 let btnCompleted = footerBtnArr[2];
@@ -133,18 +133,18 @@ function holdFilterBtnPressed(clickedBtn) {
     let filterBtnArr =
         Array.from(document.getElementsByClassName('footer__btn-filters'));
     let n=filterBtnArr.length;
+    //ClickedButton=clickedBtn;
     for (let i=0;i<n;i++)
         if(clickedBtn !== filterBtnArr[i])
             filterBtnArr[i].style.border='1px solid white';
         else {
             filterBtnArr[i].style.border='1px solid #CCCCCC';
-            indexClickedButton=i;
+            ClickedButton=filterBtnArr[i];
              }
 }
 function countItemsLeft() {
     let checkboxArr =
         Array.from(document.getElementsByClassName('list-todos__chb'));
-    let n = checkboxArr.length;
     let counterItemsLeft=0;
     for (let i=0;i<numberItem;i++)
         if(!checkboxArr[i].checked)  counterItemsLeft++;
@@ -159,9 +159,9 @@ function crossOutItem() {
         else inputItemArr[i].style.textDecoration="line-through";
 }
 function updateChangesActiveComplete() {
-    if(indexClickedButton==1) handleBtnActiveClick();
-    if(indexClickedButton==2) handleBtnCompletedClick();
-    holdFilterBtnPressed(footerBtnArr[indexClickedButton]);
+    if(ClickedButton==btnActive) handleBtnActiveClick();
+    if(ClickedButton==btnCompleted) handleBtnCompletedClick();
+    holdFilterBtnPressed(ClickedButton);
 }
 function deleteItemBtn(indexDelBtn) {
     let itemArr =
@@ -184,4 +184,5 @@ function updateItemElements() {
         element.onclick=function(){deleteItemBtn(index); };
     })
     handleOutputItemsCounter();
+    document.getElementById("inputListItem").style.overflowY="auto";
 }

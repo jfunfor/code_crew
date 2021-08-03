@@ -1,4 +1,9 @@
 .todos__workspace {
     background: #FFFFFF;
     box-shadow: 0px 4px 4px 2px #cfcfcf;
+
+}
+.todos__list
+{
+    height: 260px;
 }
