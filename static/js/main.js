@@ -5,23 +5,34 @@ let footerBtnArr =
 let searchInputArr =
     Array.from(document.getElementsByClassName('search-todos__input'));
 let indexClickedButton;
+let btnAll = footerBtnArr[0];
+let btnActive = footerBtnArr[1];
+let btnCompleted = footerBtnArr[2];
+let btnClearCompleted = footerBtnArr[3];
+let inputElementNewListItem = searchInputArr[0];
 
-footerBtnArr[0].onclick = handleBtnAllClick;
-footerBtnArr[1].onclick = handleBtnActiveClick;
-footerBtnArr[2].onclick = handleBtnCompletedClick;
-footerBtnArr[3].onclick = handleBtnClearCompletedClick;
-searchInputArr[0].onkeyup =  handleSearchInputViaEnterClick;
+btnAll.onclick = handleBtnAllClick;
+btnActive.onclick = handleBtnActiveClick;
+btnCompleted.onclick = handleBtnCompletedClick;
+btnClearCompleted.onclick = handleBtnClearCompletedClick;
+inputElementNewListItem.onkeydown = handleSearchInputViaEnterClick;
+inputElementNewListItem.onkeyup = handleOutputItemsCounter;
 checkboxArr.forEach(function(element) {
-    element.onchange=handleOutputItemsCounterOnchange;
+    element.onchange=handleOutputItemsCounter;
 })
 
 function handleSearchInputViaEnterClick(event){
     if(event.keyCode==13) {
         addNewListItem(this);
+        let checkboxArr =
+            Array.from(document.getElementsByClassName('list-todos__chb'));
+        checkboxArr.forEach(function(element) {
+            element.onchange=handleOutputItemsCounter;
+        })
     }
 }
 
-function handleOutputItemsCounterOnchange() {
+function handleOutputItemsCounter() {
     countItemsLeft();
     crossOutItem();
     updateChangesActiveAndComplete();
@@ -68,32 +79,51 @@ function handleBtnCompletedClick() {
 }
 
 function addNewListItem(inputSearch) {
-    var divList = document.getElementById("inputListItem");
-    console.log(divList);
-    var newDiv = document.createElement("div");
-    var inputChb = document.createElement("input");
-    var inputItemArr = document.getElementsByClassName("list-todos__chb");
-    var inputLine = document.createElement("input");
-    var label = document.createElement("label");
-    var button = document.createElement("button");
-    newDiv.className = "list-todos__item";
-    inputChb.type = "text";
-    inputChb.className = "list-todos__chb";
-    inputChb.type = "checkbox";
-    inputChb.id = "chb"+(parseInt(inputItemArr[inputItemArr.length-1].id.match(/\d+/))+1);
-    label.className = "list-todos__invisible-lbl";
-    label.htmlFor = inputChb.id;
-    inputLine.type = "text";
-    inputLine.className = "inputs-style list-todos__input";
-    inputLine.placeholder = "Add the new task";
-    inputLine.value = inputSearch.value;
-    button.className = "list-todos__btn-del";
+    let divList = document.getElementById("inputListItem");
+    let inputItemArr = document.getElementsByClassName("list-todos__chb");
+    let chbId = "chb" + (parseInt(inputItemArr[inputItemArr.length-1].id.match(/\d+/))+1);
+    let newDiv = createNewDiv("list-todos__item");
+    let newChb = createNewChb("list-todos__chb","checkbox",chbId);
+    let newLabel = createNewLabel("list-todos__invisible-lbl",chbId);
+    let newInputLine = createNewInputLine("inputs-style list-todos__input","text","Add the new task",inputSearch.value);
+    let newBtn = createNewBtn("list-todos__btn-del");
     divList.appendChild(newDiv);
-    newDiv.appendChild(inputChb);
-    newDiv.appendChild(label);
-    newDiv.appendChild(inputLine);
-    newDiv.appendChild(button);
+    newDiv.appendChild(newChb);
+    newDiv.appendChild(newLabel);
+    newDiv.appendChild(newInputLine);
+    newDiv.appendChild(newBtn);
     inputSearch.value= "";
+}
+function createNewDiv(className) {
+    let newDiv = document.createElement("div");
+    newDiv.className = className;
+    return newDiv;
+}
+function createNewChb(className, type, id) {
+    let newChb = document.createElement("input");
+    newChb.className = className;
+    newChb.type = type;
+    newChb.id = id;
+    return newChb;
+}
+function createNewLabel(className,htmlFor) {
+    let newLabel = document.createElement("label");
+    newLabel.className = className;
+    newLabel.htmlFor = htmlFor;
+    return newLabel;
+}
+function createNewInputLine(className,type,placeholder,value) {
+    let newInputLine = document.createElement("input");
+    newInputLine.className = className;
+    newInputLine.type = type;
+    newInputLine.placeholder = placeholder;
+    newInputLine.value = value;
+    return newInputLine;
+}
+function createNewBtn(className) {
+    let newBtn = document.createElement("button");
+    newBtn.className = className;
+    return newBtn;
 }
 
 function holdFilterBtnPressed(clickedBtn) {
@@ -110,6 +140,8 @@ function holdFilterBtnPressed(clickedBtn) {
              }
 }
 function countItemsLeft() {
+    let checkboxArr =
+        Array.from(document.getElementsByClassName('list-todos__chb'));
     let n = checkboxArr.length;
     let counterItemsLeft=0;
     for (let i=0;i<n;i++)
