@@ -10,6 +10,9 @@ let btnActive = footerBtnArr[1];
 let btnCompleted = footerBtnArr[2];
 let btnClearCompleted = footerBtnArr[3];
 let inputElementNewListItem = searchInputArr[0];
+let deleteBtnArr =
+    Array.from(document.getElementsByClassName('list-todos__btn-del'));
+let numberItem= checkboxArr.length;
 
 btnAll.onclick = handleBtnAllClick;
 btnActive.onclick = handleBtnActiveClick;
@@ -20,14 +23,14 @@ inputElementNewListItem.onkeyup = handleOutputItemsCounter;
 checkboxArr.forEach(function(element) {
     element.onchange=handleOutputItemsCounter;
 })
+deleteBtnArr.forEach(function(element,index) {
+    element.onclick=function(){deleteItemBtn(index); };
+})
 
 function handleSearchInputViaEnterClick(event){
     if(event.keyCode==13) {
         addNewListItem(this);
-        let checkboxArr =
-            Array.from(document.getElementsByClassName('list-todos__chb'));
-        checkboxArr.forEach(function(element) {
-            element.onchange=handleOutputItemsCounter;
+        updateItemElements();
         })
     }
 }
@@ -35,33 +38,29 @@ function handleSearchInputViaEnterClick(event){
 function handleOutputItemsCounter() {
     countItemsLeft();
     crossOutItem();
-    updateChangesActiveAndComplete();
+    updateChangesActiveComplete();
 }
 function handleBtnClearCompletedClick() {
-
     let inputItemArr = Array.from(document.getElementsByClassName('inputs-style list-todos__input'));
-    let n =checkboxArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(checkboxArr[i].checked) {
             checkboxArr[i].checked = false;
             inputItemArr[i].style.textDecoration = "none";
         }
-    document.getElementsByName('num_of_left')[0].value =n;
-    updateChangesActiveAndComplete();
+    document.getElementsByName('num_of_left')[0].value =numberItem;
+    updateChangesActiveComplete();
 }
 
 function handleBtnAllClick() {
     let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
-    let n =itemArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         itemArr[i].style.display='block';
     holdFilterBtnPressed(this);
 }
 
 function handleBtnActiveClick() {
     let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
-    let n =checkboxArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(checkboxArr[i].checked)
             itemArr[i].style.display='none';
         else itemArr[i].style.display='block';
@@ -70,8 +69,7 @@ function handleBtnActiveClick() {
 
 function handleBtnCompletedClick() {
     let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
-    let n =checkboxArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(!checkboxArr[i].checked)
             itemArr[i].style.display='none';
         else itemArr[i].style.display='block';
@@ -93,6 +91,7 @@ function addNewListItem(inputSearch) {
     newDiv.appendChild(newInputLine);
     newDiv.appendChild(newBtn);
     inputSearch.value= "";
+    updateItemElements();
 }
 function createNewDiv(className) {
     let newDiv = document.createElement("div");
@@ -144,7 +143,7 @@ function countItemsLeft() {
         Array.from(document.getElementsByClassName('list-todos__chb'));
     let n = checkboxArr.length;
     let counterItemsLeft=0;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(!checkboxArr[i].checked)  counterItemsLeft++;
     document.getElementsByName('num_of_left')[0].value =counterItemsLeft;
 
@@ -152,13 +151,34 @@ function countItemsLeft() {
 function crossOutItem() {
     let checkboxArr = Array.from(document.getElementsByClassName('list-todos__chb'));
     let inputItemArr = Array.from(document.getElementsByClassName('inputs-style list-todos__input'));
-    let n =inputItemArr.length;
-    for (let i=0;i<n;i++)
+    for (let i=0;i<numberItem;i++)
         if(!checkboxArr[i].checked)  inputItemArr[i].style.textDecoration="none";
         else inputItemArr[i].style.textDecoration="line-through";
 }
-function updateChangesActiveAndComplete() {
+function updateChangesActiveComplete() {
+    updateItemElements();
     if(indexClickedButton==1) handleBtnActiveClick();
     if(indexClickedButton==2) handleBtnCompletedClick();
     holdFilterBtnPressed(footerBtnArr[indexClickedButton]);
+}
+function deleteItemBtn(indexDelBtn) {
+    let itemArr =
+        Array.from(document.getElementsByClassName('list-todos__item'));
+    itemArr[indexDelBtn].parentNode.removeChild(itemArr[indexDelBtn]);
+    updateItemElements();
+}
+function updateItemElements() {
+    checkboxArr =
+        Array.from(document.getElementsByClassName('list-todos__chb'));
+    searchInputArr =
+        Array.from(document.getElementsByClassName('search-todos__input'));
+    deleteBtnArr =
+        Array.from(document.getElementsByClassName('list-todos__btn-del'));
+    numberItem= checkboxArr.length;
+    checkboxArr.forEach(function(element) {
+        element.onchange=handleOutputItemsCounter;
+    })
+    deleteBtnArr.forEach(function(element,index) {
+        element.onclick=function(){deleteItemBtn(index); };
+    })
 }
