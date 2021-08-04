@@ -4,7 +4,11 @@ let footerBtnArr =
     Array.from(document.getElementsByClassName('footer__btn'));
 let searchInputArr =
     Array.from(document.getElementsByClassName('search-todos__input'));
+let hideBtnArr =
+    Array.from(document.getElementsByClassName('search-todos__btn'));
 let ClickedButton;
+let btnHide = hideBtnArr[0];
+console.log(btnHide);
 let btnAll = footerBtnArr[0];
 let btnActive = footerBtnArr[1];
 let btnCompleted = footerBtnArr[2];
@@ -14,6 +18,7 @@ let deleteBtnArr =
     Array.from(document.getElementsByClassName('list-todos__btn-del'));
 let numberItem= checkboxArr.length;
 
+btnHide.onclick = handleBtnHideList;
 btnAll.onclick = handleBtnAllClick;
 btnActive.onclick = handleBtnActiveClick;
 btnCompleted.onclick = handleBtnCompletedClick;
@@ -38,6 +43,12 @@ function handleOutputItemsCounter() {
     crossOutItem();
     updateChangesActiveComplete();
 }
+
+function handleBtnHideList() {
+    hideFooter();
+    hideList();
+}
+
 function handleBtnClearCompletedClick() {
     let inputItemArr = Array.from(document.getElementsByClassName('inputs-style list-todos__input'));
     for (let i=0;i<numberItem;i++)
@@ -74,16 +85,29 @@ function handleBtnCompletedClick() {
     holdFilterBtnPressed(this);
 }
 
+function hideFooter() {
+    let elFooter = document.getElementById("todos__footer");
+    if (elFooter.style.display == "none") {
+        elFooter.style.display = "block";
+    }
+    else {elFooter.style.display = "none";}
+}
+function hideList() {
+    let elList = document.getElementById("todos__list");
+    if (elList.style.display == "none") {
+        elList.style.display = "block";
+    }
+    else {elList.style.display = "none";}
+}
+
 function addNewListItem(inputSearch) {
-    let divList = document.getElementById("inputListItem");
+    let divList = document.getElementById("todos__list");
     let inputItemArr = document.getElementsByClassName("list-todos__chb");
     let chbId;
-    console.log(inputItemArr.length);
     if (inputItemArr.length == 0) {
         chbId = "chb1";
     }
     else { chbId = "chb" + (parseInt(inputItemArr[inputItemArr.length-1].id.match(/\d+/))+1); }
-    console.log(chbId);
     let newDiv = createNewDiv("list-todos__item");
     let newChb = createNewChb("list-todos__chb","checkbox",chbId);
     let newLabel = createNewLabel("list-todos__invisible-lbl",chbId);
@@ -184,5 +208,5 @@ function updateItemElements() {
         element.onclick=function(){deleteItemBtn(index); };
     })
     handleOutputItemsCounter();
-    document.getElementById("inputListItem").style.overflowY="auto";
+    document.getElementById("todos__list").style.overflowY="auto";
 }
