@@ -1,27 +1,23 @@
 .list-todos__item
 {
-    height: 30px;
-    padding-top: 17px;
-    padding-bottom: 17px;
     width: 100%;
     border-bottom: 1px solid #d9d5d5;
-    position:relative;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 50px;
 }
 
 .list-todos__input {
     font-size: 14pt;
     font-weight: lighter;
     font-family: "Helvetica Neue", serif;
+    width: content-box;
 }
 .list-todos__btn-del
 {
     background: url("../../icons/close.png") center no-repeat;
     border: none;
     object-fit: contain;
-    padding: 14px 10px 10px 10px;
-    position:absolute;
-    bottom:33%;
-    right:30px;
     display: none;
 }
 .list-todos__btn-del:hover
@@ -35,5 +31,5 @@
 }
 .list-todos__item:hover .list-todos__btn-del
 {
-    display:block;
+    display:inline-block;
 }

@@ -7,8 +7,7 @@ let searchInputArr =
 let hideBtnArr =
     Array.from(document.getElementsByClassName('search-todos__btn'));
 let ClickedButton;
-let btnHide = hideBtnArr[0];
-console.log(btnHide);
+let btnHideList = hideBtnArr[0];
 let btnAll = footerBtnArr[0];
 let btnActive = footerBtnArr[1];
 let btnCompleted = footerBtnArr[2];
@@ -18,7 +17,7 @@ let deleteBtnArr =
     Array.from(document.getElementsByClassName('list-todos__btn-del'));
 let numberItem= checkboxArr.length;
 
-btnHide.onclick = handleBtnHideList;
+btnHideList.onclick = handleBtnHideList;
 btnAll.onclick = handleBtnAllClick;
 btnActive.onclick = handleBtnActiveClick;
 btnCompleted.onclick = handleBtnCompletedClick;
@@ -63,7 +62,7 @@ function handleBtnClearCompletedClick() {
 function handleBtnAllClick() {
     let itemArr = Array.from(document.getElementsByClassName('list-todos__item'));
     for (let i=0;i<numberItem;i++)
-        itemArr[i].style.display='block';
+        itemArr[i].style.display='grid';
     holdFilterBtnPressed(this);
 }
 
@@ -72,7 +71,7 @@ function handleBtnActiveClick() {
     for (let i=0;i<numberItem;i++)
         if(checkboxArr[i].checked)
             itemArr[i].style.display='none';
-        else itemArr[i].style.display='block';
+        else itemArr[i].style.display='grid';
     holdFilterBtnPressed(this);
 }
 
@@ -81,7 +80,7 @@ function handleBtnCompletedClick() {
     for (let i=0;i<numberItem;i++)
         if(!checkboxArr[i].checked)
             itemArr[i].style.display='none';
-        else itemArr[i].style.display='block';
+        else itemArr[i].style.display='grid';
     holdFilterBtnPressed(this);
 }
 

@@ -1,20 +1,18 @@
 .search-todos
 {
-    padding: 10px 0px 10px 0px;
     border-bottom: 1px solid #E6E6E6;
-    height: 30px;
-    width: 100%;
-    position:relative;
+    display: grid;
+    grid-template-columns: 1fr 15fr;
+    grid-template-rows: 60px;
+
 }
 .inputs-style
 {
-    padding: 2px;
     border: none;
 }
 .search-todos__input
 {
-    margin-left: 10px;
-    width: 200px;
+    width: content-box;
     font-style: italic;
     font-family: "Helvetica Neue", serif;
     font-size: 20px;
@@ -30,8 +28,6 @@
     background: url("../../icons/select-all.png") center no-repeat;
     border: none;
     object-fit: contain;
-    padding: 10px 10px 10px 10px;
-    margin-left: 10px;
 }
 
 .search-todos__btn:hover
