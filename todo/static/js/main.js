@@ -27,7 +27,7 @@ checkboxArr.forEach(function(element) {
     element.onchange=handleOutputItemsCounter;
 })
 deleteBtnArr.forEach(function(element,index) {
-    element.onclick=function(){deleteItemBtn(index); };
+    element.onclick=function(){deleteItemBtn(index, element.id); };
 })
 
 function handleSearchInputViaEnterClick(event){
@@ -186,11 +186,15 @@ function updateChangesActiveComplete() {
     if(ClickedButton==btnCompleted) handleBtnCompletedClick();
     holdFilterBtnPressed(ClickedButton);
 }
-function deleteItemBtn(indexDelBtn) {
-    let itemArr =
-        Array.from(document.getElementsByClassName('list-todos__item'));
-    itemArr[indexDelBtn].parentNode.removeChild(itemArr[indexDelBtn]);
-    updateItemElements();
+function deleteItemBtn(indexDelBtn, elementId) {
+    fetch('api/tasks/' + elementId.split('-')[1], {method: 'DELETE'})
+    .then(response => response.json())
+    .then(data => {
+        let itemArr =
+            Array.from(document.getElementsByClassName('list-todos__item'));
+        itemArr[indexDelBtn].parentNode.removeChild(itemArr[indexDelBtn]);
+        updateItemElements();
+    })
 }
 function updateItemElements() {
     checkboxArr =
