@@ -1,0 +1,35 @@
+.list-todos__item
+{
+    width: 100%;
+    border-bottom: 1px solid #d9d5d5;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 50px;
+}
+
+.list-todos__input {
+    font-size: 14pt;
+    font-weight: lighter;
+    font-family: "Helvetica Neue", serif;
+    width: content-box;
+}
+.list-todos__btn-del
+{
+    background: url("../../icons/close.png") center no-repeat;
+    border: none;
+    object-fit: contain;
+    display: none;
+}
+.list-todos__btn-del:hover
+{
+    filter: drop-shadow(0px 2px 2px gray);
+    cursor: pointer;
+}
+.list-todos__btn-del:active
+{
+    transform: translate(0px, 1.5px);
+}
+.list-todos__item:hover .list-todos__btn-del
+{
+    display:inline-block;
+}

@@ -1,0 +1,40 @@
+.search-todos
+{
+    border-bottom: 1px solid #E6E6E6;
+    display: grid;
+    grid-template-columns: 1fr 15fr;
+    grid-template-rows: 60px;
+
+}
+.inputs-style
+{
+    border: none;
+}
+.search-todos__input
+{
+    width: content-box;
+    font-style: italic;
+    font-family: "Helvetica Neue", serif;
+    font-size: 20px;
+    font-weight: lighter;
+}
+.inputs-style:focus
+{
+    outline: none;
+    border: none;
+}
+.search-todos__btn
+{
+    background: url("../../icons/select-all.png") center no-repeat;
+    border: none;
+    object-fit: contain;
+}
+
+.search-todos__btn:hover
+{
+    cursor: pointer;
+}
+.search-todos__btn:active
+{
+    transform: translate(0px, 1.5px);
+}

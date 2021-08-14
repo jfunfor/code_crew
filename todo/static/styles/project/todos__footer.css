@@ -1,0 +1,24 @@
+.todos__footer {
+    position: relative;
+    padding: 20px 5px;
+}
+.footer__output
+{
+    color: rgba(106, 104, 104, 0.98);
+    font-size: 15px;
+    font-family: "Helvetica Neue", serif;
+    left: 15px;
+    bottom:27%;
+}
+.footer__btn
+{
+    background-color: white;
+    border: 1px solid white;
+}
+.footer__btn-position
+{
+    position: absolute;
+    right: 10px;
+}
+.footer__btn:active{ border: 1px solid #CCCCCC; }
+.footer__btn-filters:focus{ border: 1px solid #CCCCCC; }
