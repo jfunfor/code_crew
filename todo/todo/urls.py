@@ -21,7 +21,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("todo_list.urls")),
-    path('api/', include("api.urls"))
+    path('filter_active/', include("todo_list.urls")),
+    path('filter_completed/', include('todo_list.urls')),
+    path('api/', include("api.urls")),
 ]
 
 #if settings.DEBUG:

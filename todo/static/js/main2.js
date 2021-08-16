@@ -16,7 +16,7 @@ function createTaskItem(task) {
     labelTaskIsCompleted.htmlFor = 'chb' + task.id;
 
     inputTaskName = document.createElement('input');
-    inputTaskName.value = task.title_of_task;
+    inputTaskName.value = task.title_of_task + task.id;
     inputTaskName.className = "inputs-style list-todos__input";
 
     btnDeleteTask = document.createElement('button');
@@ -32,8 +32,9 @@ function createTaskItem(task) {
 }
 
 
-function renderTasks() {
-    fetch('/api/tasks')
+function renderTasks(url) {
+    console.log(url)
+    fetch(url)
     .then(response => response.json())
     .then(data => {
         todosList = document.getElementById('todos__list');
@@ -66,6 +67,9 @@ function searchTask(element) {
         });
     }
 }
+let filterUrl = '/api/tasks/';
+if(document.getElementById('active').onclick === true) {
+    filterUrl = '/api/filter_active/'
+}
+renderTasks(filterUrl);
 
-
-renderTasks();
