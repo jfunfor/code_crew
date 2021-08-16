@@ -16,25 +16,25 @@ function createTaskItem(task) {
     labelTaskIsCompleted.htmlFor = 'chb' + task.id;
 
     inputTaskName = document.createElement('input');
-    inputTaskName.value = task.title_of_task + task.id;
+    inputTaskName.value = task.title_of_task;
     inputTaskName.className = "inputs-style list-todos__input";
 
     btnDeleteTask = document.createElement('button');
     btnDeleteTask.className = 'list-todos__btn-del';
     btnDeleteTask.onclick = () => deleteTask(task.id);
 
-    divTask.appendChild(inputTaskName);
+
     divTask.appendChild(inputTaskIsCompleted);
     divTask.appendChild(labelTaskIsCompleted);
+    divTask.appendChild(inputTaskName);
     divTask.appendChild(btnDeleteTask);
 
     return divTask;
 }
 
 
-function renderTasks(url) {
-    console.log(url)
-    fetch(url)
+function renderTasks() {
+    fetch('/api/tasks')
     .then(response => response.json())
     .then(data => {
         todosList = document.getElementById('todos__list');
@@ -67,9 +67,6 @@ function searchTask(element) {
         });
     }
 }
-let filterUrl = '/api/tasks/';
-if(document.getElementById('active').onclick === true) {
-    filterUrl = '/api/filter_active/'
-}
-renderTasks(filterUrl);
 
+
+renderTasks();
