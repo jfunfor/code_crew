@@ -23,9 +23,10 @@ function createTaskItem(task) {
     btnDeleteTask.className = 'list-todos__btn-del';
     btnDeleteTask.onclick = () => deleteTask(task.id);
 
-    divTask.appendChild(inputTaskName);
+
     divTask.appendChild(inputTaskIsCompleted);
     divTask.appendChild(labelTaskIsCompleted);
+    divTask.appendChild(inputTaskName);
     divTask.appendChild(btnDeleteTask);
 
     return divTask;
