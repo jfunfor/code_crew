@@ -34,8 +34,8 @@ function handleSearchInputViaEnterClick(event){
     if(event.keyCode==13) {
         addNewListItem(this);
         updateItemElements();
-        }
     }
+}
 
 function handleOutputItemsCounter() {
     countItemsLeft();

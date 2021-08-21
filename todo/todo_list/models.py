@@ -14,3 +14,5 @@ class Task(models.Model):
         verbose_name_plural = "Задачи"
 
 
+
+

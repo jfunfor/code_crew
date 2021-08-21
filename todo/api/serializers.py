@@ -14,3 +14,10 @@ class TaskListSerializer(serializers.ModelSerializer):
 #         model = FilterActive
 #         fields = '__all__'
 
+
+
+# class FilterTaskListSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = FilterActive
+#         fields = '__all__'
+
