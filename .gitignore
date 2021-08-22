@@ -1,2 +1,8 @@
 .idea/
 .idea
+todo/api/__pycache__/
+todo/api/migrations/__pycache__/
+todo/todo/__pycache__/
+todo/todo_list/__pycache__/
+todo/todo_list/migrations/__pycache__/
+venv/
