@@ -13,19 +13,24 @@
         <div class="todos__header">
             <div class="todos__title">todos</div>
         </div>
-        <div class="todos__workspace">
+        <div class="todos__workspace" id="todos__workspace">
             <div class="search-todos">
                 <button class="search-todos__btn"></button>
-                <input type="text" id="search-todos__input" class="inputs-style search-todos__input" onkeydown="searchTask(this)" placeholder="What needs to be done?">
+                <input type="text" id="search-todos__input" class="inputs-style search-todos__input"  placeholder="What needs to be done?">
             </div>
             <div id="todos__list" class="todos__list" >
 
             </div>
             <div id="todos__footer" class="todos__footer">
-                <output class ="footer__output"name="num_of_left">4</output> <span class="footer__output">items left</span>
-                <button class="footer__btn footer__btn-filters">All</button>
-                <button class="footer__btn footer__btn-filters">Active</button>
-                <button class="footer__btn footer__btn-filters">Completed</button>
+                <div class="footer__output">
+                    <output class ="footer__output-num"name="num_of_left">0</output>
+                    <span class="footer__output-num">items left</span>
+                </div>
+                <div class="footer__filters">
+                    <button class="footer__btn footer__btn-filters">All</button>
+                    <button class="footer__btn footer__btn-filters">Active</button>
+                    <button class="footer__btn footer__btn-filters">Completed</button>
+                </div>
                 <button class="footer__btn footer__btn-position">Clear completed</button>
             </div>
         </div>

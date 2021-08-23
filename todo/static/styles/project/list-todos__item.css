@@ -3,8 +3,8 @@
     width: 100%;
     border-bottom: 1px solid #d9d5d5;
     display: grid;
-    grid-template-columns: 1fr 10fr 1fr;
-    grid-template-rows: 50px;
+    grid-template-columns: 50px 5fr 1fr;
+    grid-template-rows: 60px;
 }
 
 .list-todos__input {
@@ -31,5 +31,12 @@
 }
 .list-todos__item:hover .list-todos__btn-del
 {
-    display:inline-block;
+    display: inline-block;
+}
+.list-todos__item:hover
+{
+    background-color: #F9F9F9;
+}
+.list-todos__item:hover .list-todos__input {
+    background-color: #F9F9F9;
 }

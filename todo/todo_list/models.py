@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 class Task(models.Model):
     title_of_task = models.CharField("Задание", max_length=150)
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title_of_task
@@ -12,3 +12,7 @@ class Task(models.Model):
     class Meta:
         verbose_name = "Задача"
         verbose_name_plural = "Задачи"
+
+
+
+
