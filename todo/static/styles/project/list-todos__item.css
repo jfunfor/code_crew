@@ -31,5 +31,12 @@
 }
 .list-todos__item:hover .list-todos__btn-del
 {
-    display:inline-block;
+    display: inline-block;
+}
+.list-todos__item:hover
+{
+    background-color: #F9F9F9;
+}
+.list-todos__item:hover .list-todos__input {
+    background-color: #F9F9F9;
 }

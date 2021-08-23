@@ -9,10 +9,16 @@
     border: 1px solid #5dc3af;
     border-radius: 100%;
     vertical-align: middle;
+    cursor: pointer;
 }
 input[class="list-todos__chb"]:checked + label::before{
     background: url("../../icons/completed.png") center no-repeat;
 }
 .list-todos__invisible-lbl {
     margin: auto;
+}
+input[class="list-todos__chb"]:checked ~ input[class="inputs-style list-todos__input"]
+{
+    text-decoration: line-through;
+    color: #CECECE;
 }

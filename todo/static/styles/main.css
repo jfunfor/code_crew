@@ -10,3 +10,4 @@ body {
     max-height: 40%;
     margin: 0 auto;
 }
+input:checked .list-todos__input
