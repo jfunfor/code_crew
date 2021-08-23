@@ -1,9 +1,10 @@
-const   urlFilterAll = 'api/tasks',
-        urlFilterActive = 'api/filter_active',
-        urlFilterCompleted = 'api/filter_completed',
-        urlFilterClearCompleted = 'api/filter_clearCompleted', // url api для кнопки Clear completed, можно изменить
-        urlEditTask = 'api/edit_task';//url api для изменения названия таска, можно изменить
+const   urlFilterAll = 'api/tasks/',
+        urlFilterActive = 'api/filter_active/',
+        urlFilterCompleted = 'api/filter_completed/',
+        urlFilterClearCompleted = 'api/filter_clearCompleted/', // url api для кнопки Clear completed, можно изменить
+        urlEditTask = 'api/edit_task/';//url api для изменения названия таска, можно изменить
 let     todos__workspace = document.getElementById('todos__workspace');
+
 
 
 todos__workspace.addEventListener('click',event => {
@@ -16,7 +17,7 @@ todos__workspace.addEventListener('click',event => {
         renderTasks(currentUrl);
     }
     if (taskId != null) {
-        deleteTask(taskId);
+        deleteTask(urlFilterAll, taskId);
     }
     if (event.target.className === 'search-todos__btn') {
         hideFooter();
@@ -24,21 +25,26 @@ todos__workspace.addEventListener('click',event => {
     }
 })
 todos__workspace.addEventListener('keydown',event => {
-    let taskId;
+    let taskId, newName;
 
     if (event.key === 'Enter') {
-
+        console.log('Enter');
         taskId = (event.target.className === 'inputs-style list-todos__input') ? event.target.id : null;
-
-        if(event.target.id === 'search-todos__input' & event.target.value) {
-            addTask(event.target);
+        console.log(event.target.value,event.target.id);
+        if(event.target.id === 'search-todos__input') {
+            if(event.target.value) {
+                console.log('search-todos__input')
+                addTask(urlFilterAll, event.target);
+            }
         }
         if(event.target.id === taskId) {
-            editTask(event.target);
+            newName = event.target.value;
+            editTask(urlFilterAll, taskId, newName);
         }
 
     }
 })
+
 
 
 function renderTasks(url) {
@@ -60,19 +66,17 @@ function renderTasks(url) {
         });
     })
 }
-
-function deleteTask(taskId) {
-    sendRequest('DELETE','/api/tasks/' + taskId)
-        .then(() => document.getElementById('divTask' + taskId).remove())
-}
-
-
-function addTask(element) {
-    sendRequest('POST','/api/tasks/',{'title_of_task': element.value})
+function addTask(url, element) {
+    sendRequest('POST',url,{'title_of_task': element.value})
         .then(task => {
-        document.getElementById('todos__list').appendChild(createTaskItem(task));
-        document.getElementById('search-todos__input').value = '';
+            console.log(typeof element.value);
+            document.getElementById('todos__list').appendChild(createTaskItem(task));
+            document.getElementById('search-todos__input').value = '';
     });
+}
+function deleteTask(url, taskId) {
+    sendRequest('DELETE',url + taskId)
+        .then(() => document.getElementById('divTask' + taskId).remove())
 }
 
 function sendRequest(method, url, data) {
@@ -135,8 +139,9 @@ function hideList() {
     else {elList.style.display = "none";}
 }
 
-function editTask(element) {
-    console.log('Next Patch')
-}
+/*function editTask(url,taskId,newName) {
+    sendRequest('PATCH',url+taskId,{'title_of_task':newName})
+        .then((newTask) => {console.log(newTask);})
+}*/
 
 renderTasks(urlFilterAll);
